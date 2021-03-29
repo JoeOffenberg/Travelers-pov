@@ -6,7 +6,7 @@ node {
    stage('Setup') { // for display purposes
       snDevOpsStep(enabled:true)
       // Get some code from a GitHub repository
-      // git branch: 'master', credentialsId: 'ds-devops', url: 'https://github.com/snow-devops/CorpSite'
+      git branch: 'skmartin', credentialsId: 'ds-devops', url: 'https://github.com/snow-devops/CorpSite'
       // Get the Maven tool.
       // ** NOTE: This 'M3' Maven tool must be configured
       // **       in the global configuration.          
