@@ -6,3 +6,4 @@ This is a demo of a corporate website.  The goal is to show changes to this app 
 
 Validating commit info.
 Create new Branch
+Test commit
