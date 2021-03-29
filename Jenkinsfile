@@ -1,12 +1,12 @@
 node {
    def mvnHome
-   def artifactname = "globex-web.war"
-   def repoName = "demorepo"
-   def pkgName = "globex-package"
+   def artifactname = "globex-web-skm.war"
+   def repoName = "demorepo-skm"
+   def pkgName = "globex-package-skm"
    stage('Setup') { // for display purposes
       snDevOpsStep(enabled:true)
       // Get some code from a GitHub repository
-      git branch: 'master', credentialsId: 'ds-devops', url: 'https://github.com/snow-devops/CorpSite'
+      // git branch: 'master', credentialsId: 'ds-devops', url: 'https://github.com/snow-devops/CorpSite'
       // Get the Maven tool.
       // ** NOTE: This 'M3' Maven tool must be configured
       // **       in the global configuration.          
@@ -41,6 +41,6 @@ node {
       snDevOpsPackage(name: "${pkgName}-${env.BUILD_NUMBER}", artifactsPayload: """{"artifacts":[{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}", "repositoryName": "${repoName}"}], "branchName":"master"}""")
       snDevOpsChange()
       sh "cp -f target/globex-web.war /opt/tomcat/webapps/globex-web.war"
-      sh('#!/bin/bash +x\n' + 'curl "https://devopsdemo01.service-now.com/api/snc/discoip?ip=3.23.165.149" --request GET --header "Accept:application/json" --user "srvcacct":"devops" 1>/dev/null 2>/dev/null')
+      echo "app deployed"
    }
    }
