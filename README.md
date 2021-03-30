@@ -8,3 +8,4 @@ Validating commit info.
 Create new Branch
 Test commit
 associate with US5
+Test from Joe
